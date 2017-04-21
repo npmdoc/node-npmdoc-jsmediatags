@@ -1,0 +1,778 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/aadsm/jsmediatags#readme"
+
+    >jsmediatags (v3.4.0)</a>
+</h1>
+<h4>Media Tags Reader (ID3, MP4)</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jsmediatags">module jsmediatags</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.Config">
+            function <span class="apidocSignatureSpan">jsmediatags.</span>Config
+            <span class="apidocSignatureSpan">(fileReader)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.Reader">
+            function <span class="apidocSignatureSpan">jsmediatags.</span>Reader
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.read">
+            function <span class="apidocSignatureSpan">jsmediatags.</span>read
+            <span class="apidocSignatureSpan">(location, callbacks)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jsmediatags.</span>ByteArrayUtils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jsmediatags.</span>ID3v2FrameReader</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jsmediatags.</span>StringUtils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jsmediatags.ByteArrayUtils">module jsmediatags.ByteArrayUtils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.ByteArrayUtils.bin">
+            function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>bin
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.ByteArrayUtils.getInteger24">
+            function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>getInteger24
+            <span class="apidocSignatureSpan">(number)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.ByteArrayUtils.getInteger32">
+            function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>getInteger32
+            <span class="apidocSignatureSpan">(number)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.ByteArrayUtils.getSynchsafeInteger32">
+            function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>getSynchsafeInteger32
+            <span class="apidocSignatureSpan">(number)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.ByteArrayUtils.pad">
+            function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>pad
+            <span class="apidocSignatureSpan">(array, size)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jsmediatags.ID3v2FrameReader">module jsmediatags.ID3v2FrameReader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.ID3v2FrameReader.getFrameReaderFunction">
+            function <span class="apidocSignatureSpan">jsmediatags.ID3v2FrameReader.</span>getFrameReaderFunction
+            <span class="apidocSignatureSpan">(frameId)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jsmediatags.StringUtils">module jsmediatags.StringUtils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.StringUtils.readNullTerminatedString">
+            function <span class="apidocSignatureSpan">jsmediatags.StringUtils.</span>readNullTerminatedString
+            <span class="apidocSignatureSpan">(bytes, maxBytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.StringUtils.readUTF16String">
+            function <span class="apidocSignatureSpan">jsmediatags.StringUtils.</span>readUTF16String
+            <span class="apidocSignatureSpan">(bytes, bigEndian, maxBytes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jsmediatags.StringUtils.readUTF8String">
+            function <span class="apidocSignatureSpan">jsmediatags.StringUtils.</span>readUTF8String
+            <span class="apidocSignatureSpan">(bytes, maxBytes)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jsmediatags" id="apidoc.module.jsmediatags">module jsmediatags</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.Config" id="apidoc.element.jsmediatags.Config">
+        function <span class="apidocSignatureSpan">jsmediatags.</span>Config
+        <span class="apidocSignatureSpan">(fileReader)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Config {
+  static addFileReader(fileReader) {
+    mediaFileReaders.push(fileReader);
+    return Config;
+  }
+
+  static addTagReader(tagReader) {
+    mediaTagReaders.push(tagReader);
+    return Config;
+  }
+
+  static removeTagReader(tagReader) {
+    var tagReaderIx = mediaTagReaders.indexOf(tagReader);
+
+    if (tagReaderIx &#x3e;= 0) {
+      mediaTagReaders.splice(tagReaderIx, 1);
+    }
+
+    return Config;
+  }
+
+  static EXPERIMENTAL_avoidHeadRequests() {
+    XhrFileReader.setConfig({
+      avoidHeadRequests: true
+    });
+  }
+
+  static setDisallowedXhrHeaders(disallowedXhrHeaders) {
+    XhrFileReader.setConfig({
+      disallowedXhrHeaders: disallowedXhrHeaders
+    });
+  }
+
+  static setXhrTimeoutInSec(timeoutInSec) {
+    XhrFileReader.setConfig({
+      timeoutInSec: timeoutInSec
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.Reader" id="apidoc.element.jsmediatags.Reader">
+        function <span class="apidocSignatureSpan">jsmediatags.</span>Reader
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Reader {
+
+  constructor(file) {
+    this._file = file;
+  }
+
+  setTagsToRead(tagsToRead) {
+    this._tagsToRead = tagsToRead;
+    return this;
+  }
+
+  setFileReader(fileReader) {
+    this._fileReader = fileReader;
+    return this;
+  }
+
+  setTagReader(tagReader) {
+    this._tagReader = tagReader;
+    return this;
+  }
+
+  read(callbacks) {
+    var FileReader = this._getFileReader();
+    var fileReader = new FileReader(this._file);
+    var self = this;
+
+    fileReader.init({
+      onSuccess: function () {
+        self._getTagReader(fileReader, {
+          onSuccess: function (TagReader) {
+            new TagReader(fileReader).setTagsToRead(self._tagsToRead).read(callbacks);
+          },
+          onError: callbacks.onError
+        });
+      },
+      onError: callbacks.onError
+    });
+  }
+
+  _getFileReader() {
+    if (this._fileReader) {
+      return this._fileReader;
+    } else {
+      return this._findFileReader();
+    }
+  }
+
+  _findFileReader() {
+    for (var i = 0; i &#x3c; mediaFileReaders.length; i++) {
+      if (mediaFileReaders[i].canReadFile(this._file)) {
+        return mediaFileReaders[i];
+      }
+    }
+
+    throw new Error(&#x22;No suitable file reader found for &#x22;, this._file);
+  }
+
+  _getTagReader(fileReader, callbacks) {
+    if (this._tagReader) {
+      var tagReader = this._tagReader;
+      setTimeout(function () {
+        callbacks.onSuccess(tagReader);
+      }, 1);
+    } else {
+      this._findTagReader(fileReader, callbacks);
+    }
+  }
+
+  _findTagReader(fileReader, callbacks) {
+    // We don&#x27;t want to make multiple fetches per tag reader to get the tag
+    // identifier. The strategy here is to combine all the tag identifier
+    // ranges into one and make a single fetch. This is particularly important
+    // in file readers that have expensive loads like the XHR one.
+    // However, with this strategy we run into the problem of loading the
+    // entire file because tag identifiers might be at the start or end of
+    // the file.
+    // To get around this we divide the tag readers into two categories, the
+    // ones that read their tag identifiers from the start of the file and the
+    // ones that read from the end of the file.
+    var tagReadersAtFileStart = [];
+    var tagReadersAtFileEnd = [];
+    var fileSize = fileReader.getSize();
+
+    for (var i = 0; i &#x3c; mediaTagReaders.length; i++) {
+      var range = mediaTagReaders[i].getTagIdentifierByteRange();
+      if (!isRangeValid(range, fileSize)) {
+        continue;
+      }
+
+      if (range.offset &#x3e;= 0 &#x26;&#x26; range.offset &#x3c; fileSize / 2 || range.offset &#x3c; 0 &#x26;&#x26; range.offset &#x3c; -fileSize / 2) {
+        tagReadersAtFileStart.push(mediaTagReaders[i]);
+      } else {
+        tagReadersAtFileEnd.push(mediaTagReaders[i]);
+      }
+    }
+
+    var tagsLoaded = false;
+    var loadTagIdentifiersCallbacks = {
+      onSuccess: function () {
+        if (!tagsLoaded) {
+          // We&#x27;re expecting to load two sets of tag identifiers. This flag
+          // indicates when the first one has been loaded.
+          tagsLoaded = true;
+          return;
+        }
+
+        for (var i = 0; i &#x3c; mediaTagReaders.length; i++) {
+          var range = mediaTagReaders[i].getTagIdentifierByteRange();
+          if (!isRangeValid(range, fileSize)) {
+            continue;
+          }
+
+          try {
+            var tagIndentifier = fileReader.getBytesAt(range.offset &#x3e;= 0 ? range.offset : range.offset + fileSize, range.length);
+          } catch (ex) {
+            if (callbacks.onError) {
+              callbacks.onError({
+                &#x22;type&#x22;: &#x22;fileReader&#x22;,
+                &#x22;info&#x22;: ex.message
+              });
+              return;
+            }
+          }
+
+          if (mediaTagReaders[i].canReadTagFormat(tagIndentifier)) {
+            callbacks.onSuccess(mediaTagReaders[i]);
+            return;
+          }
+        }
+
+        if (callbacks.onError) {
+          callbacks.onError({
+            &#x22;type&#x22;: &#x22;tagFormat&#x22;,
+            &#x22;info&#x22;: &#x22;No suitable tag reader found&#x22;
+          });
+        }
+      },
+      onError: callbacks.onError
+    };
+
+    this._loadTagIdentifierRanges(fileReader, tagReadersAtFileS ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+```javascript
+// Advanced API
+var jsmediatags = require(&#x22;jsmediatags&#x22;);
+
+new jsmediatags.<span class="apidocCodeKeywordSpan">Reader</span>(&#x22;http://www.example.com/music-file.mp3&#x22;)
+.setTagsToRead([&#x22;title&#x22;, &#x22;artist&#x22;])
+.read({
+  onSuccess: function(tag) {
+    console.log(tag);
+  },
+  onError: function(error) {
+    console.log(&#x27;:(&#x27;, error.type, error.info);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.read" id="apidoc.element.jsmediatags.read">
+        function <span class="apidocSignatureSpan">jsmediatags.</span>read
+        <span class="apidocSignatureSpan">(location, callbacks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function read(location, callbacks) {
+  new Reader(location).read(callbacks);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Run `npm install jsmediatags --save` to install.
+
+```javascript
+// Simple API - will fetch all tags
+var jsmediatags = require(&#x22;jsmediatags&#x22;);
+
+jsmediatags.<span class="apidocCodeKeywordSpan">read</span>(&#x22;./music-file.mp3&#x22;, {
+  onSuccess: function(tag) {
+    console.log(tag);
+  },
+  onError: function(error) {
+    console.log(&#x27;:(&#x27;, error.type, error.info);
+  }
+});
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jsmediatags.ByteArrayUtils" id="apidoc.module.jsmediatags.ByteArrayUtils">module jsmediatags.ByteArrayUtils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.ByteArrayUtils.bin" id="apidoc.element.jsmediatags.ByteArrayUtils.bin">
+        function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>bin
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bin = function (string) {
+  var binaryArray = new Array(string.length);
+  for (var i = 0; i &#x3c; string.length; i++) {
+    binaryArray[i] = string.charCodeAt(i);
+  }
+  return binaryArray;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.ByteArrayUtils.getInteger24" id="apidoc.element.jsmediatags.ByteArrayUtils.getInteger24">
+        function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>getInteger24
+        <span class="apidocSignatureSpan">(number)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getInteger24 = function (number) {
+  return [number &#x3e;&#x3e; 16 &#x26; 0xff, number &#x3e;&#x3e; 8 &#x26; 0xff, number &#x26; 0xff];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.ByteArrayUtils.getInteger32" id="apidoc.element.jsmediatags.ByteArrayUtils.getInteger32">
+        function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>getInteger32
+        <span class="apidocSignatureSpan">(number)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getInteger32 = function (number) {
+  return [number &#x3e;&#x3e; 24 &#x26; 0xff, number &#x3e;&#x3e; 16 &#x26; 0xff, number &#x3e;&#x3e; 8 &#x26; 0xff, number &#x26; 0xff];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.ByteArrayUtils.getSynchsafeInteger32" id="apidoc.element.jsmediatags.ByteArrayUtils.getSynchsafeInteger32">
+        function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>getSynchsafeInteger32
+        <span class="apidocSignatureSpan">(number)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSynchsafeInteger32 = function (number) {
+  // 0x7f = 0b01111111
+  return [number &#x3e;&#x3e; 21 &#x26; 0x7f, number &#x3e;&#x3e; 14 &#x26; 0x7f, number &#x3e;&#x3e; 7 &#x26; 0x7f, number &#x26; 0x7f];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.ByteArrayUtils.pad" id="apidoc.element.jsmediatags.ByteArrayUtils.pad">
+        function <span class="apidocSignatureSpan">jsmediatags.ByteArrayUtils.</span>pad
+        <span class="apidocSignatureSpan">(array, size)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pad = function (array, size) {
+  for (var i = array.length; i &#x3c; size; i++) {
+    array.push(0);
+  }
+  return array;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jsmediatags.ID3v2FrameReader" id="apidoc.module.jsmediatags.ID3v2FrameReader">module jsmediatags.ID3v2FrameReader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.ID3v2FrameReader.getFrameReaderFunction" id="apidoc.element.jsmediatags.ID3v2FrameReader.getFrameReaderFunction">
+        function <span class="apidocSignatureSpan">jsmediatags.ID3v2FrameReader.</span>getFrameReaderFunction
+        <span class="apidocSignatureSpan">(frameId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getFrameReaderFunction = function (frameId) {
+  if (frameId in frameReaderFunctions) {
+    return frameReaderFunctions[frameId];
+  } else if (frameId[0] === &#x22;T&#x22;) {
+    // All frame ids starting with T are text tags.
+    return frameReaderFunctions[&#x22;T*&#x22;];
+  } else if (frameId[0] === &#x22;W&#x22;) {
+    // All frame ids starting with W are url tags.
+    return frameReaderFunctions[&#x22;W*&#x22;];
+  } else {
+    return null;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// (after unsynchronisation &#x26;&#x26; encryption)
+if (flags &#x26;&#x26; flags.format.data_length_indicator) {
+  // var frameDataSize = frameData.getSynchsafeInteger32At(frameDataOffset);
+  frameDataOffset += 4;
+  frameSize -= 4;
+}
+
+var readFrameFunc = ID3v2FrameReader.<span class="apidocCodeKeywordSpan">getFrameReaderFunction</span>(frameId);
+var parsedData = readFrameFunc ? readFrameFunc(frameDataOffset, frameSize, frameData, flags) : null;
+var desc = this._getFrameDescription(frameId);
+
+var frame = {
+  id: frameId,
+  size: frameSize,
+  description: desc,
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jsmediatags.StringUtils" id="apidoc.module.jsmediatags.StringUtils">module jsmediatags.StringUtils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.StringUtils.readNullTerminatedString" id="apidoc.element.jsmediatags.StringUtils.readNullTerminatedString">
+        function <span class="apidocSignatureSpan">jsmediatags.StringUtils.</span>readNullTerminatedString
+        <span class="apidocSignatureSpan">(bytes, maxBytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readNullTerminatedString = function (bytes, maxBytes) {
+  var arr = [];
+  maxBytes = maxBytes || bytes.length;
+  for (var i = 0; i &#x3c; maxBytes;) {
+    var byte1 = bytes[i++];
+    if (byte1 == 0x00) {
+      break;
+    }
+    arr[i - 1] = String.fromCharCode(byte1);
+  }
+  return new InternalDecodedString(arr.join(&#x22;&#x22;), i);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      break;
+
+    case &#x22;utf-8&#x22;:
+      string = StringUtils.readUTF8String(bytes);
+      break;
+
+    default:
+      string = StringUtils.<span class="apidocCodeKeywordSpan">readNullTerminatedString</span>(bytes);
+      break;
+  }
+
+  return string;
+}
+
+getCharAt(offset) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.StringUtils.readUTF16String" id="apidoc.element.jsmediatags.StringUtils.readUTF16String">
+        function <span class="apidocSignatureSpan">jsmediatags.StringUtils.</span>readUTF16String
+        <span class="apidocSignatureSpan">(bytes, bigEndian, maxBytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readUTF16String = function (bytes, bigEndian, maxBytes) {
+  var ix = 0;
+  var offset1 = 1,
+      offset2 = 0;
+
+  maxBytes = Math.min(maxBytes || bytes.length, bytes.length);
+
+  if (bytes[0] == 0xFE &#x26;&#x26; bytes[1] == 0xFF) {
+    bigEndian = true;
+    ix = 2;
+  } else if (bytes[0] == 0xFF &#x26;&#x26; bytes[1] == 0xFE) {
+    bigEndian = false;
+    ix = 2;
+  }
+  if (bigEndian) {
+    offset1 = 0;
+    offset2 = 1;
+  }
+
+  var arr = [];
+  for (var j = 0; ix &#x3c; maxBytes; j++) {
+    var byte1 = bytes[ix + offset1];
+    var byte2 = bytes[ix + offset2];
+    var word1 = (byte1 &#x3c;&#x3c; 8) + byte2;
+    ix += 2;
+    if (word1 == 0x0000) {
+      break;
+    } else if (byte1 &#x3c; 0xD8 || byte1 &#x3e;= 0xE0) {
+      arr[j] = String.fromCharCode(word1);
+    } else {
+      var byte3 = bytes[ix + offset1];
+      var byte4 = bytes[ix + offset2];
+      var word2 = (byte3 &#x3c;&#x3c; 8) + byte4;
+      ix += 2;
+      arr[j] = String.fromCharCode(word1, word2);
+    }
+  }
+  return new InternalDecodedString(arr.join(&#x22;&#x22;), ix);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var bytes = this.getBytesAt(offset, length);
+    var string;
+
+    switch ((charset || &#x27;&#x27;).toLowerCase()) {
+case &#x22;utf-16&#x22;:
+case &#x22;utf-16le&#x22;:
+case &#x22;utf-16be&#x22;:
+  string = StringUtils.<span class="apidocCodeKeywordSpan">readUTF16String</span>(bytes, charset === &#x22;utf-16be&#x22;);
+  break;
+
+case &#x22;utf-8&#x22;:
+  string = StringUtils.readUTF8String(bytes);
+  break;
+
+default:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jsmediatags.StringUtils.readUTF8String" id="apidoc.element.jsmediatags.StringUtils.readUTF8String">
+        function <span class="apidocSignatureSpan">jsmediatags.StringUtils.</span>readUTF8String
+        <span class="apidocSignatureSpan">(bytes, maxBytes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readUTF8String = function (bytes, maxBytes) {
+  var ix = 0;
+  maxBytes = Math.min(maxBytes || bytes.length, bytes.length);
+
+  if (bytes[0] == 0xEF &#x26;&#x26; bytes[1] == 0xBB &#x26;&#x26; bytes[2] == 0xBF) {
+    ix = 3;
+  }
+
+  var arr = [];
+  for (var j = 0; ix &#x3c; maxBytes; j++) {
+    var byte1 = bytes[ix++];
+    if (byte1 == 0x00) {
+      break;
+    } else if (byte1 &#x3c; 0x80) {
+      arr[j] = String.fromCharCode(byte1);
+    } else if (byte1 &#x3e;= 0xC2 &#x26;&#x26; byte1 &#x3c; 0xE0) {
+      var byte2 = bytes[ix++];
+      arr[j] = String.fromCharCode(((byte1 &#x26; 0x1F) &#x3c;&#x3c; 6) + (byte2 &#x26; 0x3F));
+    } else if (byte1 &#x3e;= 0xE0 &#x26;&#x26; byte1 &#x3c; 0xF0) {
+      var byte2 = bytes[ix++];
+      var byte3 = bytes[ix++];
+      arr[j] = String.fromCharCode(((byte1 &#x26; 0xFF) &#x3c;&#x3c; 12) + ((byte2 &#x26; 0x3F) &#x3c;&#x3c; 6) + (byte3 &#x26; 0x3F));
+    } else if (byte1 &#x3e;= 0xF0 &#x26;&#x26; byte1 &#x3c; 0xF5) {
+      var byte2 = bytes[ix++];
+      var byte3 = bytes[ix++];
+      var byte4 = bytes[ix++];
+      var codepoint = ((byte1 &#x26; 0x07) &#x3c;&#x3c; 18) + ((byte2 &#x26; 0x3F) &#x3c;&#x3c; 12) + ((byte3 &#x26; 0x3F) &#x3c;&#x3c; 6) + (byte4 &#x26; 0x3F) - 0x10000;
+      arr[j] = String.fromCharCode((codepoint &#x3e;&#x3e; 10) + 0xD800, (codepoint &#x26; 0x3FF) + 0xDC00);
+    }
+  }
+  return new InternalDecodedString(arr.join(&#x22;&#x22;), ix);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  case &#x22;utf-16&#x22;:
+  case &#x22;utf-16le&#x22;:
+  case &#x22;utf-16be&#x22;:
+    string = StringUtils.readUTF16String(bytes, charset === &#x22;utf-16be&#x22;);
+    break;
+
+  case &#x22;utf-8&#x22;:
+    string = StringUtils.<span class="apidocCodeKeywordSpan">readUTF8String</span>(bytes);
+    break;
+
+  default:
+    string = StringUtils.readNullTerminatedString(bytes);
+    break;
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
